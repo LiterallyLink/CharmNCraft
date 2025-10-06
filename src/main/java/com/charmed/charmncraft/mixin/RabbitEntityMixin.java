@@ -1,16 +1,13 @@
 package com.charmed.charmncraft.mixin;
 
-import net.minecraft.entity.ai.goal.FollowMobGoal;
-import net.minecraft.entity.ai.goal.TemptGoal;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.RabbitEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -27,25 +24,20 @@ public abstract class RabbitEntityMixin extends AnimalEntity {
         super(entityType, world);
     }
 
-    @Shadow
-    public abstract void setVariant(RabbitEntity.RabbitType variant);
-
-    @Shadow
-    protected abstract void initGoals();
-
     @Inject(
-            method = "createChild(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/entity/passive/AnimalEntity;)Lnet/minecraft/entity/passive/RabbitEntity;",
+            method = "createChild(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/entity/passive/PassiveEntity;)Lnet/minecraft/entity/passive/PassiveEntity;",
             at = @At("RETURN")
     )
-    private void charmncraft_modifyBabyRabbit(ServerWorld world, AnimalEntity other, CallbackInfoReturnable<RabbitEntity> cir) {
-        RabbitEntity baby = cir.getReturnValue();
+    private void charmncraft_modifyBabyRabbit(ServerWorld world, PassiveEntity other, CallbackInfoReturnable<PassiveEntity> cir) {
+        PassiveEntity baby = cir.getReturnValue();
 
-        if (baby != null && RANDOM.nextDouble() < KILLER_RABBIT_CHANCE) {
-            // Set the rabbit to be a killer rabbit variant
-            baby.setVariant(RabbitEntity.RabbitType.EVIL);
+        if (baby instanceof RabbitEntity rabbitBaby && RANDOM.nextDouble() < KILLER_RABBIT_CHANCE) {
+            // Set the rabbit to be a killer rabbit variant (type 99) using the data tracker directly
+            TrackedData<Integer> rabbitTypeData = RabbitEntityAccessor.getRabbitTypeTrackedData();
+            rabbitBaby.getDataTracker().set(rabbitTypeData, 99);
 
             // Add custom NBT tag to mark this as a "tamed" killer rabbit
-            baby.addCommandTag("charmncraft:passive_killer");
+            rabbitBaby.addCommandTag("charmncraft:passive_killer");
 
             // The rabbit will already have the evil appearance but we need to modify its behavior
             // We'll handle the behavior changes in a separate mixin that targets goal initialization
