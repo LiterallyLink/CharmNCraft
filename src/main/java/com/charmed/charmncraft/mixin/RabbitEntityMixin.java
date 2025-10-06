@@ -10,37 +10,38 @@ import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Random;
 
-@Mixin(RabbitEntity.class)
-public abstract class RabbitEntityMixin extends AnimalEntity {
+@Mixin(AnimalEntity.class)
+public abstract class RabbitEntityMixin extends PassiveEntity {
     private static final Random RANDOM = new Random();
-    private static final double KILLER_RABBIT_CHANCE = 0.05; // 5% chance
+    private static final double KILLER_RABBIT_CHANCE = 0.05;
 
-    // This is required for the super constructor
-    protected RabbitEntityMixin(EntityType<? extends AnimalEntity> entityType, World world) {
+    protected RabbitEntityMixin(EntityType<? extends PassiveEntity> entityType, World world) {
         super(entityType, world);
     }
 
     @Inject(
-            method = "createChild(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/entity/passive/PassiveEntity;)Lnet/minecraft/entity/passive/PassiveEntity;",
-            at = @At("RETURN")
+            method = "breed(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/entity/passive/AnimalEntity;Lnet/minecraft/entity/passive/PassiveEntity;)V",
+            at = @At("HEAD")
     )
-    private void charmncraft_modifyBabyRabbit(ServerWorld world, PassiveEntity other, CallbackInfoReturnable<PassiveEntity> cir) {
-        PassiveEntity baby = cir.getReturnValue();
+    private void charmncraft_createPassiveKillerRabbit(ServerWorld world, AnimalEntity other, PassiveEntity baby, CallbackInfo ci) {
+        // Check if both parents are rabbits
+        AnimalEntity thisAnimal = (AnimalEntity)(Object)this;
+        if (thisAnimal.getType() != EntityType.RABBIT || other.getType() != EntityType.RABBIT) {
+            return;
+        }
 
+        // Check if baby is a rabbit and roll for killer variant
         if (baby instanceof RabbitEntity rabbitBaby && RANDOM.nextDouble() < KILLER_RABBIT_CHANCE) {
-            // Set the rabbit to be a killer rabbit variant (type 99) using the data tracker directly
+            // Set to killer rabbit type (99)
             TrackedData<Integer> rabbitTypeData = RabbitEntityAccessor.getRabbitTypeTrackedData();
             rabbitBaby.getDataTracker().set(rabbitTypeData, 99);
 
-            // Add custom NBT tag to mark this as a "tamed" killer rabbit
+            // Mark as passive killer
             rabbitBaby.addCommandTag("charmncraft:passive_killer");
-
-            // The rabbit will already have the evil appearance but we need to modify its behavior
-            // We'll handle the behavior changes in a separate mixin that targets goal initialization
         }
     }
 }
