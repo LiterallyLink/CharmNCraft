@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "charmncraft:frosted_stone_bricks",
+    "charmncraft:frosted_stone_brick_stairs",
+    "charmncraft:frosted_stone_brick_slab",
+    "charmncraft:frosted_stone_brick_wall"
+  ]
+}
