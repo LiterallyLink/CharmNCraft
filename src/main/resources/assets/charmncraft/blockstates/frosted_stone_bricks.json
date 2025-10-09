@@ -1,8 +1,7 @@
 {
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "charmncraft:block/frosted_stone_bricks_top",
-    "top": "charmncraft:block/frosted_stone_bricks_top",
-    "side": "charmncraft:block/frosted_stone_bricks_side"
+  "variants": {
+    "": {
+      "model": "charmncraft:block/frosted_stone_bricks"
+    }
   }
 }
