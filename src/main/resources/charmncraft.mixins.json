@@ -3,10 +3,9 @@
   "package": "com.charmed.charmncraft.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "MobEntityAccessor",
+    "AnimalEntityMixin",
     "RabbitEntityMixin",
-    "RabbitEntityAccessor",
-    "RabbitGoalInitMixin"
+    "RabbitEntityAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
