@@ -1,0 +1,321 @@
+{
+  "pressure_plates": [
+    {
+      "base_block": "charmncraft:frosted_stone_bricks",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:obsidian",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "texture": "minecraft:block/obsidian",
+      "strength": 50.0
+    },
+    {
+      "base_block": "minecraft:granite",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.5
+    },
+    {
+      "base_block": "minecraft:polished_granite",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.5
+    },
+    {
+      "base_block": "minecraft:diorite",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.5
+    },
+    {
+      "base_block": "minecraft:polished_diorite",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.5
+    },
+    {
+      "base_block": "minecraft:andesite",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.5
+    },
+    {
+      "base_block": "minecraft:polished_andesite",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.5
+    },
+    {
+      "base_block": "minecraft:deepslate",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 3.0
+    },
+    {
+      "base_block": "minecraft:cobbled_deepslate",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 3.5
+    },
+    {
+      "base_block": "minecraft:polished_deepslate",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 3.5
+    },
+    {
+      "base_block": "minecraft:deepslate_bricks",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 3.5
+    },
+    {
+      "base_block": "minecraft:deepslate_tiles",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 3.5
+    },
+    {
+      "base_block": "minecraft:calcite",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.75
+    },
+    {
+      "base_block": "minecraft:tuff",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.5
+    },
+    {
+      "base_block": "minecraft:smooth_stone",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 2.0
+    },
+    {
+      "base_block": "minecraft:sandstone",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.8
+    },
+    {
+      "base_block": "minecraft:smooth_sandstone",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 2.0,
+      "texture": "minecraft:block/sandstone_top"
+    },
+    {
+      "base_block": "minecraft:cut_sandstone",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.8
+    },
+    {
+      "base_block": "minecraft:red_sandstone",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.8
+    },
+    {
+      "base_block": "minecraft:smooth_red_sandstone",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 2.0,
+      "texture": "minecraft:block/red_sandstone_top"
+    },
+    {
+      "base_block": "minecraft:cut_red_sandstone",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.8
+    },
+    {
+      "base_block": "minecraft:prismarine",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.5
+    },
+    {
+      "base_block": "minecraft:prismarine_bricks",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.5
+    },
+    {
+      "base_block": "minecraft:dark_prismarine",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.5
+    },
+    {
+      "base_block": "minecraft:end_stone",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 3.0
+    },
+    {
+      "base_block": "minecraft:end_stone_bricks",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 3.0
+    },
+    {
+      "base_block": "minecraft:purpur_block",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.5
+    },
+    {
+      "base_block": "minecraft:purpur_pillar",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.5
+    },
+    {
+      "base_block": "minecraft:quartz_block",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.8,
+      "texture": "minecraft:block/quartz_block_side"
+    },
+    {
+      "base_block": "minecraft:smooth_quartz",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 2.0,
+      "texture": "minecraft:block/quartz_block_bottom"
+    },
+    {
+      "base_block": "minecraft:quartz_bricks",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.8
+    },
+    {
+      "base_block": "minecraft:quartz_pillar",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.8
+    },
+    {
+      "base_block": "minecraft:blackstone",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.5
+    },
+    {
+      "base_block": "minecraft:polished_blackstone",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 2.0
+    },
+    {
+      "base_block": "minecraft:polished_blackstone_bricks",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.5
+    },
+    {
+      "base_block": "minecraft:smooth_basalt",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.25
+    },
+    {
+      "base_block": "minecraft:gold_block",
+      "material": "metal",
+      "activation_rule": "mobs",
+      "strength": 3.0
+    },
+    {
+      "base_block": "minecraft:copper_block",
+      "material": "metal",
+      "activation_rule": "mobs",
+      "strength": 3.0
+    },
+    {
+      "base_block": "minecraft:exposed_copper",
+      "material": "metal",
+      "activation_rule": "mobs",
+      "strength": 3.0
+    },
+    {
+      "base_block": "minecraft:weathered_copper",
+      "material": "metal",
+      "activation_rule": "mobs",
+      "strength": 3.0
+    },
+    {
+      "base_block": "minecraft:oxidized_copper",
+      "material": "metal",
+      "activation_rule": "mobs",
+      "strength": 3.0
+    },
+    {
+      "base_block": "minecraft:cut_copper",
+      "material": "metal",
+      "activation_rule": "mobs",
+      "strength": 3.0
+    },
+    {
+      "base_block": "minecraft:exposed_cut_copper",
+      "material": "metal",
+      "activation_rule": "mobs",
+      "strength": 3.0
+    },
+    {
+      "base_block": "minecraft:weathered_cut_copper",
+      "material": "metal",
+      "activation_rule": "mobs",
+      "strength": 3.0
+    },
+    {
+      "base_block": "minecraft:oxidized_cut_copper",
+      "material": "metal",
+      "activation_rule": "mobs",
+      "strength": 3.0
+    },
+    {
+      "base_block": "minecraft:netherite_block",
+      "material": "metal",
+      "activation_rule": "mobs",
+      "strength": 50.0
+    },
+    {
+      "base_block": "minecraft:packed_ice",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:blue_ice",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 2.8
+    },
+    {
+      "base_block": "minecraft:nether_bricks",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 2.0
+    },
+    {
+      "base_block": "minecraft:red_nether_bricks",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 2.0
+    },
+    {
+      "base_block": "minecraft:mud_bricks",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.5
+    }
+  ]
+}

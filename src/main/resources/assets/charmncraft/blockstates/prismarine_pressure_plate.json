@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "powered=false": {
+            "model": "charmncraft:block/prismarine_pressure_plate"
+        },
+        "powered=true": {
+            "model": "charmncraft:block/prismarine_pressure_plate_down"
+        }
+    }
+}

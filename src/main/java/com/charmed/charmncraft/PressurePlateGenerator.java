@@ -29,7 +29,7 @@ public class PressurePlateGenerator {
     private static void loadConfigAndGenerate() {
         try {
             InputStream stream = PressurePlateGenerator.class
-                    .getResourceAsStream("/pressure_plate_config.json");
+                    .getResourceAsStream("/data/charmncraft/pressure_plate_config.json");
 
             if (stream == null) {
                 CharmNCraft.LOGGER.warn("No pressure plate config found");

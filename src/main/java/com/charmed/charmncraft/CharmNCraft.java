@@ -15,7 +15,8 @@ public class CharmNCraft implements ModInitializer {
         LOGGER.info("[CharmNCraft] Initialize");
 
         ModBlocks.initialize();
-        PressurePlateGenerator.initialize();  // Add this line
+        PressurePlateGenerator.initialize();
+        VillagerNameManager.initialize();  // ← ADD THIS LINE
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
             entries.add(ModBlocks.FROSTED_STONE_BRICKS);
@@ -23,7 +24,6 @@ public class CharmNCraft implements ModInitializer {
             entries.add(ModBlocks.FROSTED_STONE_BRICK_SLAB);
             entries.add(ModBlocks.FROSTED_STONE_BRICK_WALL);
 
-            // Add generated pressure plates
             PressurePlateGenerator.getGeneratedPlates().forEach(plate -> {
                 entries.add(plate.block());
             });

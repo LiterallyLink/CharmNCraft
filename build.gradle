@@ -76,7 +76,7 @@ import groovy.json.JsonOutput
 
 task generateTranslations {
     doLast {
-        def configFile = file('src/main/resources/pressure_plate_config.json')
+        def configFile = file('src/main/resources/data/charmncraft/pressure_plate_config.json')
         def langFile = file('src/main/resources/assets/charmncraft/lang/en_us.json')
 
         if (!configFile.exists()) {
@@ -116,7 +116,7 @@ task generateTranslations {
 
 task generateAssets {
     doLast {
-        def configFile = file('src/main/resources/pressure_plate_config.json')
+        def configFile = file('src/main/resources/data/charmncraft/pressure_plate_config.json')
 
         if (!configFile.exists()) {
             println "No pressure plate config found, skipping asset generation"
