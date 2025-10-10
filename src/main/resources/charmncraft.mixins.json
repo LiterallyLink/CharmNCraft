@@ -5,7 +5,8 @@
   "mixins": [
     "AnimalEntityMixin",
     "RabbitEntityMixin",
-    "RabbitEntityAccessor"
+    "RabbitEntityAccessor",
+    "VillagerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

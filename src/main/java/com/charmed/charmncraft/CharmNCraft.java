@@ -15,6 +15,7 @@ public class CharmNCraft implements ModInitializer {
         LOGGER.info("[CharmNCraft] Initialize");
 
         ModBlocks.initialize();
+        VillagerNameManager.initialize();
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
             entries.add(ModBlocks.FROSTED_STONE_BRICKS);
@@ -23,6 +24,4 @@ public class CharmNCraft implements ModInitializer {
             entries.add(ModBlocks.FROSTED_STONE_BRICK_WALL);
         });
     }
-
-
 }
