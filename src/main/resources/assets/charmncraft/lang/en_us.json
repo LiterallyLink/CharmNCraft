@@ -1,6 +1,8 @@
 {
-  "block.charmncraft.frosted_stone_bricks": "Frosted Stone Bricks",
-  "block.charmncraft.frosted_stone_brick_stairs": "Frosted Stone Brick Stairs",
-  "block.charmncraft.frosted_stone_brick_slab": "Frosted Stone Brick Slab",
-  "block.charmncraft.frosted_stone_brick_wall": "Frosted Stone Brick Wall"
+    "block.charmncraft.frosted_stone_bricks": "Frosted Stone Bricks",
+    "block.charmncraft.frosted_stone_brick_stairs": "Frosted Stone Brick Stairs",
+    "block.charmncraft.frosted_stone_brick_slab": "Frosted Stone Brick Slab",
+    "block.charmncraft.frosted_stone_brick_wall": "Frosted Stone Brick Wall",
+    "block.charmncraft.frosted_stone_bricks_pressure_plate": "Frosted Stone Bricks Pressure Plate",
+    "block.charmncraft.obsidian_pressure_plate": "Obsidian Pressure Plate"
 }

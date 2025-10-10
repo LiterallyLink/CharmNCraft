@@ -1,90 +1,323 @@
 plugins {
-	id 'fabric-loom' version "${loom_version}"
-	id 'maven-publish'
+    id 'fabric-loom' version "${loom_version}"
+    id 'maven-publish'
 }
 
 version = project.mod_version
 group = project.maven_group
 
 base {
-	archivesName = project.archives_base_name
+    archivesName = project.archives_base_name
 }
 
 repositories {
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
+    // Add repositories to retrieve artifacts from in here.
+    // You should only use this when depending on other mods because
+    // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
+    // See https://docs.gradle.org/current/userguide/declaring_repositories.html
+    // for more information about repositories.
 }
 
 loom {
-	splitEnvironmentSourceSets()
+    splitEnvironmentSourceSets()
 
-	mods {
-		"charmncraft" {
-			sourceSet sourceSets.main
-			sourceSet sourceSets.client
-		}
-	}
+    mods {
+        "charmncraft" {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
 
 }
 
 dependencies {
-	// To change the versions see the gradle.properties file
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    // To change the versions see the gradle.properties file
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	
+    // Fabric API. This is technically optional, but you probably want it anyway.
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
 }
 
 processResources {
-	inputs.property "version", project.version
+    inputs.property "version", project.version
 
-	filesMatching("fabric.mod.json") {
-		expand "version": inputs.properties.version
-	}
+    filesMatching("fabric.mod.json") {
+        expand "version": inputs.properties.version
+    }
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 17
+    it.options.release = 17
 }
 
 java {
-	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-	// if it is present.
-	// If you remove this line, sources will not be generated.
-	withSourcesJar()
+    // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+    // if it is present.
+    // If you remove this line, sources will not be generated.
+    withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_17
-	targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 jar {
-	inputs.property "archivesName", project.base.archivesName
+    inputs.property "archivesName", project.base.archivesName
 
-	from("LICENSE") {
-		rename { "${it}_${inputs.properties.archivesName}"}
-	}
+    from("LICENSE") {
+        rename { "${it}_${inputs.properties.archivesName}"}
+    }
 }
+
+import groovy.json.JsonSlurper
+import groovy.json.JsonOutput
+
+task generateTranslations {
+    doLast {
+        def configFile = file('src/main/resources/pressure_plate_config.json')
+        def langFile = file('src/main/resources/assets/charmncraft/lang/en_us.json')
+
+        if (!configFile.exists()) {
+            println "No pressure plate config found, skipping translation generation"
+            return
+        }
+
+        // Parse the config
+        def jsonSlurper = new JsonSlurper()
+        def config = jsonSlurper.parse(configFile)
+
+        // Load existing translations
+        def translations = langFile.exists() ? jsonSlurper.parse(langFile) : [:]
+
+        // Generate translations for each pressure plate
+        config.pressure_plates.each { plate ->
+            def baseBlock = plate.base_block
+            def namespace = baseBlock.split(':')[0]
+            def path = baseBlock.split(':')[1]
+
+            // Create pressure plate key
+            def plateKey = "block.charmncraft.${path}_pressure_plate"
+
+            // Generate name: "frosted_stone_bricks" -> "Frosted Stone Bricks Pressure Plate"
+            def nameParts = path.split('_').collect { it.capitalize() }.join(' ')
+            def translatedName = "${nameParts} Pressure Plate"
+
+            translations[plateKey] = translatedName
+        }
+
+        // Write back to file with pretty printing
+        langFile.text = JsonOutput.prettyPrint(JsonOutput.toJson(translations))
+
+        println "Generated translations for ${config.pressure_plates.size()} pressure plates"
+    }
+}
+
+task generateAssets {
+    doLast {
+        def configFile = file('src/main/resources/pressure_plate_config.json')
+
+        if (!configFile.exists()) {
+            println "No pressure plate config found, skipping asset generation"
+            return
+        }
+
+        def jsonSlurper = new JsonSlurper()
+        def config = jsonSlurper.parse(configFile)
+
+        config.pressure_plates.each { plate ->
+            def baseBlock = plate.base_block
+            def namespace = baseBlock.split(':')[0]
+            def path = baseBlock.split(':')[1]
+            def plateName = "${path}_pressure_plate"
+
+            // Get optional texture override
+            def textureOverride = plate.texture ?: null
+
+            // Generate blockstate
+            generateBlockstate(plateName)
+
+            // Generate block models with texture handling
+            generateBlockModels(plateName, path, namespace, textureOverride)
+
+            // Generate item model
+            generateItemModel(plateName)
+
+            // Generate loot table
+            generateLootTable(plateName)
+
+            // Generate recipe
+            generateRecipe(plateName, baseBlock)
+
+            // Generate block tags
+            generateBlockTags(plateName)
+        }
+
+        println "Generated assets for ${config.pressure_plates.size()} pressure plates"
+    }
+}
+
+def generateBlockstate(String plateName) {
+    def blockstateDir = file("src/main/resources/assets/charmncraft/blockstates")
+    blockstateDir.mkdirs()
+
+    def blockstate = [
+            variants: [
+                    "powered=false": [
+                            model: "charmncraft:block/${plateName}"
+                    ],
+                    "powered=true": [
+                            model: "charmncraft:block/${plateName}_down"
+                    ]
+            ]
+    ]
+
+    def blockstateFile = new File(blockstateDir, "${plateName}.json")
+    blockstateFile.text = JsonOutput.prettyPrint(JsonOutput.toJson(blockstate))
+}
+
+def generateBlockModels(String plateName, String basePath, String baseNamespace, String textureOverride) {
+    def modelDir = file("src/main/resources/assets/charmncraft/models/block")
+    modelDir.mkdirs()
+
+    // Determine texture path
+    def texturePath
+    if (textureOverride) {
+        texturePath = textureOverride
+    } else {
+        // Auto-detect: if base block is from our mod, use _side suffix
+        if (baseNamespace == "charmncraft") {
+            texturePath = "charmncraft:block/${basePath}_side"
+        } else {
+            texturePath = "${baseNamespace}:block/${basePath}"
+        }
+    }
+
+    // Unpowered model
+    def unpoweredModel = [
+            parent: "minecraft:block/pressure_plate_up",
+            textures: [
+                    texture: texturePath
+            ]
+    ]
+
+    def unpoweredFile = new File(modelDir, "${plateName}.json")
+    unpoweredFile.text = JsonOutput.prettyPrint(JsonOutput.toJson(unpoweredModel))
+
+    // Powered (down) model
+    def poweredModel = [
+            parent: "minecraft:block/pressure_plate_down",
+            textures: [
+                    texture: texturePath
+            ]
+    ]
+
+    def poweredFile = new File(modelDir, "${plateName}_down.json")
+    poweredFile.text = JsonOutput.prettyPrint(JsonOutput.toJson(poweredModel))
+}
+
+def generateItemModel(String plateName) {
+    def itemModelDir = file("src/main/resources/assets/charmncraft/models/item")
+    itemModelDir.mkdirs()
+
+    def itemModel = [
+            parent: "charmncraft:block/${plateName}"
+    ]
+
+    def itemFile = new File(itemModelDir, "${plateName}.json")
+    itemFile.text = JsonOutput.prettyPrint(JsonOutput.toJson(itemModel))
+}
+
+def generateLootTable(String plateName) {
+    def lootTableDir = file("src/main/resources/data/charmncraft/loot_tables/blocks")
+    lootTableDir.mkdirs()
+
+    def lootTable = [
+            type: "minecraft:block",
+            pools: [
+                    [
+                            rolls: 1,
+                            entries: [
+                                    [
+                                            type: "minecraft:item",
+                                            name: "charmncraft:${plateName}"
+                                    ]
+                            ],
+                            conditions: [
+                                    [
+                                            condition: "minecraft:survives_explosion"
+                                    ]
+                            ]
+                    ]
+            ]
+    ]
+
+    def lootFile = new File(lootTableDir, "${plateName}.json")
+    lootFile.text = JsonOutput.prettyPrint(JsonOutput.toJson(lootTable))
+}
+
+def generateRecipe(String plateName, String baseBlockId) {
+    def recipeDir = file("src/main/resources/data/charmncraft/recipes")
+    recipeDir.mkdirs()
+
+    def recipe = [
+            type: "minecraft:crafting_shaped",
+            pattern: [
+                    "BB"
+            ],
+            key: [
+                    B: [
+                            item: baseBlockId
+                    ]
+            ],
+            result: [
+                    item: "charmncraft:${plateName}",
+                    count: 1
+            ]
+    ]
+
+    def recipeFile = new File(recipeDir, "${plateName}.json")
+    recipeFile.text = JsonOutput.prettyPrint(JsonOutput.toJson(recipe))
+}
+
+def generateBlockTags(String plateName) {
+    def pickaxeTagDir = file("src/main/resources/data/minecraft/tags/blocks/mineable")
+    pickaxeTagDir.mkdirs()
+
+    def pickaxeTagFile = new File(pickaxeTagDir, "pickaxe.json")
+
+    // Load existing tag or create new
+    def jsonSlurper = new JsonSlurper()
+    def pickaxeTag = pickaxeTagFile.exists() ? jsonSlurper.parse(pickaxeTagFile) : [replace: false, values: []]
+
+    // Add pressure plate if not already in list
+    def plateId = "charmncraft:${plateName}"
+    if (!pickaxeTag.values.contains(plateId)) {
+        pickaxeTag.values.add(plateId)
+    }
+
+    pickaxeTagFile.text = JsonOutput.prettyPrint(JsonOutput.toJson(pickaxeTag))
+}
+
+// Run before processing resources
+processResources.dependsOn generateTranslations
+processResources.dependsOn generateAssets
 
 // configure the maven publication
 publishing {
-	publications {
-		create("mavenJava", MavenPublication) {
-			artifactId = project.archives_base_name
-			from components.java
-		}
-	}
+    publications {
+        create("mavenJava", MavenPublication) {
+            artifactId = project.archives_base_name
+            from components.java
+        }
+    }
 
-	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-	repositories {
-		// Add repositories to publish to here.
-		// Notice: This block does NOT have the same function as the block in the top level.
-		// The repositories here will be used for publishing your artifact, not for
-		// retrieving dependencies.
-	}
+    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+    repositories {
+        // Add repositories to publish to here.
+        // Notice: This block does NOT have the same function as the block in the top level.
+        // The repositories here will be used for publishing your artifact, not for
+        // retrieving dependencies.
+    }
 }
