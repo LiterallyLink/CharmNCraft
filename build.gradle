@@ -291,11 +291,17 @@ def generateBlockTags(String plateName) {
     def jsonSlurper = new JsonSlurper()
     def pickaxeTag = pickaxeTagFile.exists() ? jsonSlurper.parse(pickaxeTagFile) : [replace: false, values: []]
 
-    // Add pressure plate if not already in list
     def plateId = "charmncraft:${plateName}"
-    if (!pickaxeTag.values.contains(plateId)) {
-        pickaxeTag.values.add(plateId)
-    }
+
+    // Force all strings to be proper String objects to avoid JsonSlurper comparison issues
+    def existingValues = pickaxeTag.values.collect { it.toString() }
+    def valueSet = new LinkedHashSet<String>(existingValues)
+
+    // Add to set (automatically handles duplicates)
+    valueSet.add(plateId.toString())
+
+    // Convert back to list and update
+    pickaxeTag.values = valueSet as List
 
     pickaxeTagFile.text = JsonOutput.prettyPrint(JsonOutput.toJson(pickaxeTag))
 }
