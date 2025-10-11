@@ -1,4 +1,4 @@
-﻿{
+{
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "charmncraft:item/explorers_compass_08"
