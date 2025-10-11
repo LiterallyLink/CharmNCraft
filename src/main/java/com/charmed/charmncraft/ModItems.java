@@ -7,9 +7,6 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
-    public static final Item EXPLORERS_COMPASS = registerItem("explorers_compass",
-            new Item(new FabricItemSettings()));
-
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(CharmNCraft.MOD_ID, name), item);
     }
