@@ -54,5 +54,6 @@
     "block.charmncraft.blue_ice_pressure_plate": "Blue Ice Pressure Plate",
     "block.charmncraft.nether_bricks_pressure_plate": "Nether Bricks Pressure Plate",
     "block.charmncraft.red_nether_bricks_pressure_plate": "Red Nether Bricks Pressure Plate",
-    "block.charmncraft.mud_bricks_pressure_plate": "Mud Bricks Pressure Plate"
+    "block.charmncraft.mud_bricks_pressure_plate": "Mud Bricks Pressure Plate",
+    "item.charmncraft.explorers_compass": "Explorer's Compass"
 }

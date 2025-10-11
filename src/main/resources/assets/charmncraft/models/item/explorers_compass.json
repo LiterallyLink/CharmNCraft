@@ -1,0 +1,39 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "charmncraft:item/explorers_compass_00"
+  },
+  "overrides": [
+    {"predicate": {"angle": 0.0000000}, "model": "charmncraft:item/explorers_compass_00"},
+    {"predicate": {"angle": 0.0322581}, "model": "charmncraft:item/explorers_compass_01"},
+    {"predicate": {"angle": 0.0645161}, "model": "charmncraft:item/explorers_compass_02"},
+    {"predicate": {"angle": 0.0967742}, "model": "charmncraft:item/explorers_compass_03"},
+    {"predicate": {"angle": 0.1290323}, "model": "charmncraft:item/explorers_compass_04"},
+    {"predicate": {"angle": 0.1612903}, "model": "charmncraft:item/explorers_compass_05"},
+    {"predicate": {"angle": 0.1935484}, "model": "charmncraft:item/explorers_compass_06"},
+    {"predicate": {"angle": 0.2258065}, "model": "charmncraft:item/explorers_compass_07"},
+    {"predicate": {"angle": 0.2580645}, "model": "charmncraft:item/explorers_compass_08"},
+    {"predicate": {"angle": 0.2903226}, "model": "charmncraft:item/explorers_compass_09"},
+    {"predicate": {"angle": 0.3225806}, "model": "charmncraft:item/explorers_compass_10"},
+    {"predicate": {"angle": 0.3548387}, "model": "charmncraft:item/explorers_compass_11"},
+    {"predicate": {"angle": 0.3870968}, "model": "charmncraft:item/explorers_compass_12"},
+    {"predicate": {"angle": 0.4193548}, "model": "charmncraft:item/explorers_compass_13"},
+    {"predicate": {"angle": 0.4516129}, "model": "charmncraft:item/explorers_compass_14"},
+    {"predicate": {"angle": 0.4838710}, "model": "charmncraft:item/explorers_compass_15"},
+    {"predicate": {"angle": 0.5161290}, "model": "charmncraft:item/explorers_compass_16"},
+    {"predicate": {"angle": 0.5483871}, "model": "charmncraft:item/explorers_compass_17"},
+    {"predicate": {"angle": 0.5806452}, "model": "charmncraft:item/explorers_compass_18"},
+    {"predicate": {"angle": 0.6129032}, "model": "charmncraft:item/explorers_compass_19"},
+    {"predicate": {"angle": 0.6451613}, "model": "charmncraft:item/explorers_compass_20"},
+    {"predicate": {"angle": 0.6774194}, "model": "charmncraft:item/explorers_compass_21"},
+    {"predicate": {"angle": 0.7096774}, "model": "charmncraft:item/explorers_compass_22"},
+    {"predicate": {"angle": 0.7419355}, "model": "charmncraft:item/explorers_compass_23"},
+    {"predicate": {"angle": 0.7741935}, "model": "charmncraft:item/explorers_compass_24"},
+    {"predicate": {"angle": 0.8064516}, "model": "charmncraft:item/explorers_compass_25"},
+    {"predicate": {"angle": 0.8387097}, "model": "charmncraft:item/explorers_compass_26"},
+    {"predicate": {"angle": 0.8709677}, "model": "charmncraft:item/explorers_compass_27"},
+    {"predicate": {"angle": 0.9032258}, "model": "charmncraft:item/explorers_compass_28"},
+    {"predicate": {"angle": 0.9354839}, "model": "charmncraft:item/explorers_compass_29"},
+    {"predicate": {"angle": 0.9677419}, "model": "charmncraft:item/explorers_compass_30"}
+  ]
+}
