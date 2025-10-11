@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SCS",
+    "CRC",
+    "SCS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:cobweb"
+    },
+    "C": {
+      "item": "minecraft:cracked_stone_bricks"
+    },
+    "R": {
+      "item": "minecraft:compass"
+    }
+  },
+  "result": {
+    "item": "charmncraft:explorers_compass",
+    "count": 1
+  }
+}
