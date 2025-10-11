@@ -24,13 +24,10 @@ public class AnimalEntityMixin {
         if (thisAnimal.getType() == EntityType.RABBIT && other.getType() == EntityType.RABBIT) {
             if (baby instanceof RabbitEntity rabbitBaby) {
                 if (world.getRandom().nextDouble() < KILLER_RABBIT_CHANCE) {
-                    // Add tag first, before setting variant
                     rabbitBaby.addCommandTag("charmncraft:passive_killer");
 
-                    // Set variant to killer rabbit
                     rabbitBaby.setVariant(RabbitEntity.RabbitType.EVIL);
 
-                    // Remove the "The Killer Rabbit" name
                     rabbitBaby.setCustomName(null);
                     rabbitBaby.setCustomNameVisible(false);
                 }

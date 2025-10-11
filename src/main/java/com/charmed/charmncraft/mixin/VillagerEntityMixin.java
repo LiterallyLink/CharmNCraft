@@ -24,24 +24,19 @@ public abstract class VillagerEntityMixin extends MerchantEntity {
 
     @Inject(method = "tick", at = @At("HEAD"))
     private void assignNameOnFirstTick(CallbackInfo ci) {
-        // Only run on server side
         if (this.getWorld().isClient()) {
             return;
         }
 
-        // Check if we've already assigned a name
         if (this.getCommandTags().contains(NAME_ASSIGNED_TAG)) {
             return;
         }
 
-        // Check if this villager already has a custom name
         if (this.hasCustomName()) {
-            // Mark as assigned so we don't override player-given names
             this.addCommandTag(NAME_ASSIGNED_TAG);
             return;
         }
 
-        // Assign a random name based on gender (50/50 chance)
         String name;
         if (this.getWorld().getRandom().nextBoolean()) {
             name = VillagerNameManager.getRandomMaleName();
@@ -50,13 +45,12 @@ public abstract class VillagerEntityMixin extends MerchantEntity {
         }
 
         this.setCustomName(Text.literal(name));
-        this.setCustomNameVisible(false); // Only show when looking at them
+        this.setCustomNameVisible(false);
         this.addCommandTag(NAME_ASSIGNED_TAG);
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
     private void ensureNameTagPersists(NbtCompound nbt, CallbackInfo ci) {
-        // When loading from NBT, if we have a custom name, mark as assigned
         if (this.hasCustomName() && !this.getCommandTags().contains(NAME_ASSIGNED_TAG)) {
             this.addCommandTag(NAME_ASSIGNED_TAG);
         }

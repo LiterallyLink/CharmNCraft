@@ -11,9 +11,7 @@ public class CharmNCraftClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        // Listen for server telling us to open the screen
         ClientPlayNetworking.registerGlobalReceiver(OPEN_COMPASS_SCREEN, (client, handler, buf, responseSender) -> {
-            // Must run on main thread
             client.execute(() -> {
                 client.setScreen(new ExplorersCompassScreen());
             });

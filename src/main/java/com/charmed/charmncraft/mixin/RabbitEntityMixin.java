@@ -22,15 +22,12 @@ public class RabbitEntityMixin {
             return;
         }
 
-        // If this is our passive killer, set the variant WITHOUT adding hostile goals
         if (rabbit.getCommandTags().contains("charmncraft:passive_killer") &&
                 rabbitType == RabbitEntity.RabbitType.EVIL) {
 
-            // Manually set the variant data without running the hostile goal code
             TrackedData<Integer> rabbitTypeData = RabbitEntityAccessor.getRabbitTypeTrackedData();
             rabbit.getDataTracker().set(rabbitTypeData, rabbitType.getId());
 
-            // Cancel the original method so hostile goals aren't added
             ci.cancel();
         }
     }

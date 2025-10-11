@@ -58,7 +58,6 @@ public class VillagerNameManager {
             CharmNCraft.LOGGER.error("Failed to find resource {}", id, e);
         }
 
-        // Fallback names if loading fails
         if (targetList.isEmpty()) {
             CharmNCraft.LOGGER.warn("No names loaded for {}, using fallback", filename);
             if (filename.equals("male_names")) {
