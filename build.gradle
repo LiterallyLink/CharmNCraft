@@ -84,30 +84,24 @@ task generateTranslations {
             return
         }
 
-        // Parse the config
         def jsonSlurper = new JsonSlurper()
         def config = jsonSlurper.parse(configFile)
 
-        // Load existing translations
         def translations = langFile.exists() ? jsonSlurper.parse(langFile) : [:]
 
-        // Generate translations for each pressure plate
         config.pressure_plates.each { plate ->
             def baseBlock = plate.base_block
             def namespace = baseBlock.split(':')[0]
             def path = baseBlock.split(':')[1]
 
-            // Create pressure plate key
             def plateKey = "block.charmncraft.${path}_pressure_plate"
 
-            // Generate name: "frosted_stone_bricks" -> "Frosted Stone Bricks Pressure Plate"
             def nameParts = path.split('_').collect { it.capitalize() }.join(' ')
             def translatedName = "${nameParts} Pressure Plate"
 
             translations[plateKey] = translatedName
         }
 
-        // Write back to file with pretty printing
         langFile.text = JsonOutput.prettyPrint(JsonOutput.toJson(translations))
 
         println "Generated translations for ${config.pressure_plates.size()} pressure plates"
@@ -132,25 +126,18 @@ task generateAssets {
             def path = baseBlock.split(':')[1]
             def plateName = "${path}_pressure_plate"
 
-            // Get optional texture override
             def textureOverride = plate.texture ?: null
 
-            // Generate blockstate
             generateBlockstate(plateName)
 
-            // Generate block models with texture handling
             generateBlockModels(plateName, path, namespace, textureOverride)
 
-            // Generate item model
             generateItemModel(plateName)
 
-            // Generate loot table
             generateLootTable(plateName)
 
-            // Generate recipe
             generateRecipe(plateName, baseBlock)
 
-            // Generate block tags
             generateBlockTags(plateName)
         }
 
@@ -181,12 +168,10 @@ def generateBlockModels(String plateName, String basePath, String baseNamespace,
     def modelDir = file("src/main/resources/assets/charmncraft/models/block")
     modelDir.mkdirs()
 
-    // Determine texture path
     def texturePath
     if (textureOverride) {
         texturePath = textureOverride
     } else {
-        // Auto-detect: if base block is from our mod, use _side suffix
         if (baseNamespace == "charmncraft") {
             texturePath = "charmncraft:block/${basePath}_side"
         } else {
@@ -194,7 +179,6 @@ def generateBlockModels(String plateName, String basePath, String baseNamespace,
         }
     }
 
-    // Unpowered model
     def unpoweredModel = [
             parent: "minecraft:block/pressure_plate_up",
             textures: [
@@ -287,20 +271,16 @@ def generateBlockTags(String plateName) {
 
     def pickaxeTagFile = new File(pickaxeTagDir, "pickaxe.json")
 
-    // Load existing tag or create new
     def jsonSlurper = new JsonSlurper()
     def pickaxeTag = pickaxeTagFile.exists() ? jsonSlurper.parse(pickaxeTagFile) : [replace: false, values: []]
 
     def plateId = "charmncraft:${plateName}"
 
-    // Force all strings to be proper String objects to avoid JsonSlurper comparison issues
     def existingValues = pickaxeTag.values.collect { it.toString() }
     def valueSet = new LinkedHashSet<String>(existingValues)
 
-    // Add to set (automatically handles duplicates)
     valueSet.add(plateId.toString())
 
-    // Convert back to list and update
     pickaxeTag.values = valueSet as List
 
     pickaxeTagFile.text = JsonOutput.prettyPrint(JsonOutput.toJson(pickaxeTag))
