@@ -19,17 +19,11 @@ public class ExplorersCompassScreen extends Screen {
     private static final int BUTTON_MARGIN = 10;
     private static final int BUTTON_SPACING = 5;
 
-    private int cancelButtonX;
-    private int cancelButtonY;
-    private int teleportButtonX;
-    private int teleportButtonY;
-
-    private int selectStructureButtonX;
-    private int selectStructureButtonY;
-    private int startSearchButtonX;
-    private int startSearchButtonY;
-    private int sortByButtonX;
-    private int sortByButtonY;
+    private int cancelButtonX, cancelButtonY;
+    private int teleportButtonX, teleportButtonY;
+    private int selectStructureButtonX, selectStructureButtonY;
+    private int startSearchButtonX, startSearchButtonY;
+    private int sortByButtonX, sortByButtonY;
 
     private TextFieldWidget searchField;
     private StructureListWidget structureList;
@@ -43,20 +37,20 @@ public class ExplorersCompassScreen extends Screen {
     protected void init() {
         super.init();
 
-        this.cancelButtonX = BUTTON_MARGIN;
-        this.cancelButtonY = this.height - BUTTON_HEIGHT - BUTTON_MARGIN;
+        cancelButtonX = BUTTON_MARGIN;
+        cancelButtonY = this.height - BUTTON_HEIGHT - BUTTON_MARGIN;
 
-        this.teleportButtonX = this.width - BUTTON_WIDTH - BUTTON_MARGIN;
-        this.teleportButtonY = BUTTON_MARGIN;
+        teleportButtonX = this.width - BUTTON_WIDTH - BUTTON_MARGIN;
+        teleportButtonY = BUTTON_MARGIN;
 
-        this.selectStructureButtonX = BUTTON_MARGIN;
-        this.selectStructureButtonY = BUTTON_MARGIN;
+        selectStructureButtonX = BUTTON_MARGIN;
+        selectStructureButtonY = BUTTON_MARGIN;
 
-        this.startSearchButtonX = BUTTON_MARGIN;
-        this.startSearchButtonY = selectStructureButtonY + BUTTON_HEIGHT + BUTTON_SPACING;
+        startSearchButtonX = BUTTON_MARGIN;
+        startSearchButtonY = selectStructureButtonY + BUTTON_HEIGHT + BUTTON_SPACING;
 
-        this.sortByButtonX = BUTTON_MARGIN;
-        this.sortByButtonY = startSearchButtonY + BUTTON_HEIGHT + BUTTON_SPACING;
+        sortByButtonX = BUTTON_MARGIN;
+        sortByButtonY = startSearchButtonY + BUTTON_HEIGHT + BUTTON_SPACING;
 
         int searchFieldX = selectStructureButtonX + BUTTON_WIDTH + BUTTON_SPACING;
         int searchFieldY = selectStructureButtonY;
@@ -72,21 +66,18 @@ public class ExplorersCompassScreen extends Screen {
         this.searchField.setPlaceholder(Text.literal("Search"));
         this.addSelectableChild(this.searchField);
 
-        int listX = searchFieldX;
         int listY = searchFieldY + BUTTON_HEIGHT + BUTTON_SPACING;
-        int listWidth = 400;
         int listHeight = this.height - listY - BUTTON_MARGIN;
-
+        int listWidth = 200;
         this.structureList = new StructureListWidget(
                 this.client,
                 listWidth,
                 listHeight,
                 listY,
-                listX,
+                searchFieldX,
                 18
         );
 
-        // Test data
         this.structureList.addTestEntry("Aurora Palace");
         this.structureList.addTestEntry("Bastion Remnant");
         this.structureList.addTestEntry("Buried Treasure");
@@ -101,50 +92,11 @@ public class ExplorersCompassScreen extends Screen {
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         context.fillGradient(0, 0, this.width, this.height, 0xC0101010, 0xD0101010);
 
-        context.fill(selectStructureButtonX, selectStructureButtonY,
-                selectStructureButtonX + BUTTON_WIDTH, selectStructureButtonY + BUTTON_HEIGHT, 0xFF000000);
-        context.drawBorder(selectStructureButtonX, selectStructureButtonY, BUTTON_WIDTH, BUTTON_HEIGHT, 0xFFAAAAAA);
-        Text selectText = Text.literal("Select Structure");
-        int selectTextWidth = this.textRenderer.getWidth(selectText);
-        int selectTextX = selectStructureButtonX + (BUTTON_WIDTH - selectTextWidth) / 2;
-        int selectTextY = selectStructureButtonY + (BUTTON_HEIGHT - this.textRenderer.fontHeight) / 2;
-        context.drawText(this.textRenderer, selectText, selectTextX, selectTextY, 0xFFFFFF, false);
-
-        context.fill(startSearchButtonX, startSearchButtonY,
-                startSearchButtonX + BUTTON_WIDTH, startSearchButtonY + BUTTON_HEIGHT, 0xFF000000);
-        context.drawBorder(startSearchButtonX, startSearchButtonY, BUTTON_WIDTH, BUTTON_HEIGHT, 0xFFAAAAAA);
-        Text startText = Text.literal("Start Search");
-        int startTextWidth = this.textRenderer.getWidth(startText);
-        int startTextX = startSearchButtonX + (BUTTON_WIDTH - startTextWidth) / 2;
-        int startTextY = startSearchButtonY + (BUTTON_HEIGHT - this.textRenderer.fontHeight) / 2;
-        context.drawText(this.textRenderer, startText, startTextX, startTextY, 0xFFFFFF, false);
-
-        context.fill(sortByButtonX, sortByButtonY,
-                sortByButtonX + BUTTON_WIDTH, sortByButtonY + BUTTON_HEIGHT, 0xFF000000);
-        context.drawBorder(sortByButtonX, sortByButtonY, BUTTON_WIDTH, BUTTON_HEIGHT, 0xFFAAAAAA);
-        Text sortText = Text.literal("Sort By: Name");
-        int sortTextWidth = this.textRenderer.getWidth(sortText);
-        int sortTextX = sortByButtonX + (BUTTON_WIDTH - sortTextWidth) / 2;
-        int sortTextY = sortByButtonY + (BUTTON_HEIGHT - this.textRenderer.fontHeight) / 2;
-        context.drawText(this.textRenderer, sortText, sortTextX, sortTextY, 0xFFFFFF, false);
-
-        context.fill(cancelButtonX, cancelButtonY,
-                cancelButtonX + BUTTON_WIDTH, cancelButtonY + BUTTON_HEIGHT, 0xFF000000);
-        context.drawBorder(cancelButtonX, cancelButtonY, BUTTON_WIDTH, BUTTON_HEIGHT, 0xFFAAAAAA);
-        Text cancelText = Text.literal("Cancel");
-        int cancelTextWidth = this.textRenderer.getWidth(cancelText);
-        int cancelTextX = cancelButtonX + (BUTTON_WIDTH - cancelTextWidth) / 2;
-        int cancelTextY = cancelButtonY + (BUTTON_HEIGHT - this.textRenderer.fontHeight) / 2;
-        context.drawText(this.textRenderer, cancelText, cancelTextX, cancelTextY, 0xFFFFFF, false);
-
-        context.fill(teleportButtonX, teleportButtonY,
-                teleportButtonX + BUTTON_WIDTH, teleportButtonY + BUTTON_HEIGHT, 0xFF000000);
-        context.drawBorder(teleportButtonX, teleportButtonY, BUTTON_WIDTH, BUTTON_HEIGHT, 0xFFAAAAAA);
-        Text teleportText = Text.literal("Teleport");
-        int teleportTextWidth = this.textRenderer.getWidth(teleportText);
-        int teleportTextX = teleportButtonX + (BUTTON_WIDTH - teleportTextWidth) / 2;
-        int teleportTextY = teleportButtonY + (BUTTON_HEIGHT - this.textRenderer.fontHeight) / 2;
-        context.drawText(this.textRenderer, teleportText, teleportTextX, teleportTextY, 0xFFFFFF, false);
+        renderButton(context, selectStructureButtonX, selectStructureButtonY, "Select Structure");
+        renderButton(context, startSearchButtonX, startSearchButtonY, "Start Search");
+        renderButton(context, sortByButtonX, sortByButtonY, "Sort By: Name");
+        renderButton(context, cancelButtonX, cancelButtonY, "Cancel");
+        renderButton(context, teleportButtonX, teleportButtonY, "Teleport");
 
         this.searchField.render(context, mouseX, mouseY, delta);
         this.structureList.render(context, mouseX, mouseY, delta);
@@ -152,57 +104,57 @@ public class ExplorersCompassScreen extends Screen {
         super.render(context, mouseX, mouseY, delta);
     }
 
+    private void renderButton(DrawContext context, int x, int y, String label) {
+        context.fill(x, y, x + BUTTON_WIDTH, y + BUTTON_HEIGHT, 0xFF000000);
+        context.drawBorder(x, y, BUTTON_WIDTH, BUTTON_HEIGHT, 0xFFAAAAAA);
+
+        Text text = Text.literal(label);
+        int textX = x + (BUTTON_WIDTH - this.textRenderer.getWidth(text)) / 2;
+        int textY = y + (BUTTON_HEIGHT - this.textRenderer.fontHeight) / 2;
+        context.drawText(this.textRenderer, text, textX, textY, 0xFFFFFF, false);
+    }
+
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        if (mouseX >= cancelButtonX && mouseX <= cancelButtonX + BUTTON_WIDTH &&
-                mouseY >= cancelButtonY && mouseY <= cancelButtonY + BUTTON_HEIGHT) {
-
-            this.client.getSoundManager().play(
-                    PositionedSoundInstance.master(SoundEvents.UI_BUTTON_CLICK, 1.0F)
-            );
-
+        if (isButtonClicked(mouseX, mouseY, cancelButtonX, cancelButtonY)) {
+            playClickSound();
             ClientPlayNetworking.send(CharmNCraft.COMPASS_UI_CLOSED, PacketByteBufs.empty());
             this.close();
             return true;
         }
 
-        if (mouseX >= teleportButtonX && mouseX <= teleportButtonX + BUTTON_WIDTH &&
-                mouseY >= teleportButtonY && mouseY <= teleportButtonY + BUTTON_HEIGHT) {
-
-            this.client.getSoundManager().play(
-                    PositionedSoundInstance.master(SoundEvents.UI_BUTTON_CLICK, 1.0F)
-            );
+        if (isButtonClicked(mouseX, mouseY, teleportButtonX, teleportButtonY)) {
+            playClickSound();
             return true;
         }
 
-        if (mouseX >= selectStructureButtonX && mouseX <= selectStructureButtonX + BUTTON_WIDTH &&
-                mouseY >= selectStructureButtonY && mouseY <= selectStructureButtonY + BUTTON_HEIGHT) {
-
-            this.client.getSoundManager().play(
-                    PositionedSoundInstance.master(SoundEvents.UI_BUTTON_CLICK, 1.0F)
-            );
+        if (isButtonClicked(mouseX, mouseY, selectStructureButtonX, selectStructureButtonY)) {
+            playClickSound();
             return true;
         }
 
-        if (mouseX >= startSearchButtonX && mouseX <= startSearchButtonX + BUTTON_WIDTH &&
-                mouseY >= startSearchButtonY && mouseY <= startSearchButtonY + BUTTON_HEIGHT) {
-
-            this.client.getSoundManager().play(
-                    PositionedSoundInstance.master(SoundEvents.UI_BUTTON_CLICK, 1.0F)
-            );
+        if (isButtonClicked(mouseX, mouseY, startSearchButtonX, startSearchButtonY)) {
+            playClickSound();
             return true;
         }
 
-        if (mouseX >= sortByButtonX && mouseX <= sortByButtonX + BUTTON_WIDTH &&
-                mouseY >= sortByButtonY && mouseY <= sortByButtonY + BUTTON_HEIGHT) {
-
-            this.client.getSoundManager().play(
-                    PositionedSoundInstance.master(SoundEvents.UI_BUTTON_CLICK, 1.0F)
-            );
+        if (isButtonClicked(mouseX, mouseY, sortByButtonX, sortByButtonY)) {
+            playClickSound();
             return true;
         }
 
         return super.mouseClicked(mouseX, mouseY, button);
+    }
+
+    private boolean isButtonClicked(double mouseX, double mouseY, int buttonX, int buttonY) {
+        return mouseX >= buttonX && mouseX <= buttonX + BUTTON_WIDTH &&
+                mouseY >= buttonY && mouseY <= buttonY + BUTTON_HEIGHT;
+    }
+
+    private void playClickSound() {
+        this.client.getSoundManager().play(
+                PositionedSoundInstance.master(SoundEvents.UI_BUTTON_CLICK, 1.0F)
+        );
     }
 
     @Override
@@ -216,6 +168,9 @@ public class ExplorersCompassScreen extends Screen {
         public StructureListWidget(net.minecraft.client.MinecraftClient client, int width, int height, int top, int left, int itemHeight) {
             super(client, width, height, top, top + height, itemHeight);
             this.listX = left;
+            this.setLeftPos(left);
+            this.setRenderBackground(false);
+            this.setRenderHorizontalShadows(false);
         }
 
         public void addStructure(RegistryKey<Structure> structureKey) {
@@ -238,7 +193,7 @@ public class ExplorersCompassScreen extends Screen {
 
         @Override
         public int getRowLeft() {
-            return this.listX;
+            return this.listX + 2;
         }
 
         public class StructureEntry extends AlwaysSelectedEntryListWidget.Entry<StructureEntry> {
@@ -274,14 +229,9 @@ public class ExplorersCompassScreen extends Screen {
             @Override
             public boolean mouseClicked(double mouseX, double mouseY, int button) {
                 StructureListWidget.this.setSelected(this);
-                if (this.structureKey != null) {
-                    ExplorersCompassScreen.this.selectedStructure = this.structureKey.getValue().toString();
-                } else {
-                    ExplorersCompassScreen.this.selectedStructure = this.displayName;
-                }
-                ExplorersCompassScreen.this.client.getSoundManager().play(
-                        PositionedSoundInstance.master(SoundEvents.UI_BUTTON_CLICK, 1.0F)
-                );
+                ExplorersCompassScreen.this.selectedStructure =
+                        this.structureKey != null ? this.structureKey.getValue().toString() : this.displayName;
+                playClickSound();
                 return true;
             }
 
