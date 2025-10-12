@@ -25,7 +25,6 @@ public class ExplorersCompassItem extends Item {
         if (!world.isClient) {
             player.sendMessage(Text.literal("Explorer's Compass activated!"), false);
 
-            // Tell the client to open the screen
             ServerPlayNetworking.send(
                     (ServerPlayerEntity) player,
                     new Identifier(CharmNCraft.MOD_ID, "open_compass_screen"),
