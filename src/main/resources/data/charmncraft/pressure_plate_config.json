@@ -10,6 +10,7 @@
       "base_block": "minecraft:obsidian",
       "material": "stone",
       "activation_rule": "mobs",
+      "texture": "minecraft:block/obsidian",
       "strength": 50.0
     },
     {
@@ -317,109 +318,31 @@
       "strength": 1.5
     },
     {
-      "base_block": "minecraft:oak_planks",
-      "material": "wood",
-      "activation_rule": "everything",
-      "strength": 2.0
-    },
-    {
-      "base_block": "minecraft:spruce_planks",
-      "material": "wood",
-      "activation_rule": "everything",
-      "strength": 2.0
-    },
-    {
-      "base_block": "minecraft:birch_planks",
-      "material": "wood",
-      "activation_rule": "everything",
-      "strength": 2.0
-    },
-    {
-      "base_block": "minecraft:jungle_planks",
-      "material": "wood",
-      "activation_rule": "everything",
-      "strength": 2.0
-    },
-    {
-      "base_block": "minecraft:acacia_planks",
-      "material": "wood",
-      "activation_rule": "everything",
-      "strength": 2.0
-    },
-    {
-      "base_block": "minecraft:dark_oak_planks",
-      "material": "wood",
-      "activation_rule": "everything",
-      "strength": 2.0
-    },
-    {
-      "base_block": "minecraft:mangrove_planks",
-      "material": "wood",
-      "activation_rule": "everything",
-      "strength": 2.0
-    },
-    {
-      "base_block": "minecraft:cherry_planks",
-      "material": "wood",
-      "activation_rule": "everything",
-      "strength": 2.0
-    },
-    {
-      "base_block": "minecraft:bamboo_planks",
-      "material": "wood",
-      "activation_rule": "everything",
-      "strength": 2.0
-    },
-    {
-      "base_block": "minecraft:crimson_planks",
-      "material": "wood",
-      "activation_rule": "everything",
-      "strength": 2.0
-    },
-    {
-      "base_block": "minecraft:warped_planks",
-      "material": "wood",
-      "activation_rule": "everything",
-      "strength": 2.0
-    },
-    {
-      "base_block": "minecraft:stone",
+      "base_block": "minecraft:coal_block",
       "material": "stone",
       "activation_rule": "mobs",
-      "strength": 1.5
+      "strength": 5.0
     },
     {
-      "base_block": "minecraft:cobblestone",
+      "base_block": "minecraft:diamond_block",
       "material": "stone",
       "activation_rule": "mobs",
-      "strength": 2.0
+      "strength": 5.0
     },
     {
-      "base_block": "minecraft:mossy_cobblestone",
+      "base_block": "minecraft:emerald_block",
       "material": "stone",
       "activation_rule": "mobs",
-      "strength": 2.0
+      "strength": 5.0
     },
     {
-      "base_block": "minecraft:stone_bricks",
+      "base_block": "minecraft:lapis_block",
       "material": "stone",
       "activation_rule": "mobs",
-      "strength": 1.5
+      "strength": 3.0
     },
     {
-      "base_block": "minecraft:mossy_stone_bricks",
-      "material": "stone",
-      "activation_rule": "mobs",
-      "strength": 1.5
-    },
-    {
-      "base_block": "minecraft:cracked_stone_bricks",
-      "material": "stone",
-      "activation_rule": "mobs",
-      "strength": 1.5
-    },
-    {
-      "base_block": "minecraft:chiseled_stone_bricks",
+      "base_block": "minecraft:amethyst_block",
       "material": "stone",
       "activation_rule": "mobs",
       "strength": 1.5
@@ -431,28 +354,82 @@
       "strength": 2.0
     },
     {
-      "base_block": "minecraft:iron_block",
-      "material": "metal",
+      "base_block": "minecraft:chiseled_stone_bricks",
+      "material": "stone",
       "activation_rule": "mobs",
-      "strength": 5.0
+      "strength": 1.5
     },
     {
-      "base_block": "minecraft:diamond_block",
-      "material": "metal",
+      "base_block": "minecraft:cracked_stone_bricks",
+      "material": "stone",
       "activation_rule": "mobs",
-      "strength": 5.0
+      "strength": 1.5
     },
     {
-      "base_block": "minecraft:emerald_block",
-      "material": "metal",
+      "base_block": "minecraft:mossy_stone_bricks",
+      "material": "stone",
       "activation_rule": "mobs",
-      "strength": 5.0
+      "strength": 1.5
     },
     {
-      "base_block": "minecraft:lapis_block",
-      "material": "metal",
+      "base_block": "minecraft:chiseled_nether_bricks",
+      "material": "stone",
       "activation_rule": "mobs",
-      "strength": 3.0
+      "strength": 2.0
+    },
+    {
+      "base_block": "minecraft:cracked_nether_bricks",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 2.0
+    },
+    {
+      "base_block": "minecraft:chiseled_polished_blackstone",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.5
+    },
+    {
+      "base_block": "minecraft:cracked_polished_blackstone_bricks",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.5
+    },
+    {
+      "base_block": "minecraft:chiseled_quartz_block",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.8
+    },
+    {
+      "base_block": "minecraft:chiseled_red_sandstone",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.8
+    },
+    {
+      "base_block": "minecraft:chiseled_sandstone",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.8
+    },
+    {
+      "base_block": "minecraft:chiseled_deepslate",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 3.5
+    },
+    {
+      "base_block": "minecraft:cracked_deepslate_bricks",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 3.5
+    },
+    {
+      "base_block": "minecraft:cracked_deepslate_tiles",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 3.5
     },
     {
       "base_block": "minecraft:redstone_block",
@@ -461,10 +438,531 @@
       "strength": 5.0
     },
     {
-      "base_block": "minecraft:coal_block",
+      "base_block": "minecraft:raw_copper_block",
       "material": "stone",
       "activation_rule": "mobs",
       "strength": 5.0
+    },
+    {
+      "base_block": "minecraft:raw_gold_block",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 5.0
+    },
+    {
+      "base_block": "minecraft:raw_iron_block",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 5.0
+    },
+    {
+      "base_block": "minecraft:ice",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:basalt",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.25,
+      "texture": "minecraft:block/basalt_side"
+    },
+    {
+      "base_block": "minecraft:polished_basalt",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.25,
+      "texture": "minecraft:block/polished_basalt_side"
+    },
+    {
+      "base_block": "minecraft:soul_sand",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:soul_soil",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:netherrack",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.4
+    },
+    {
+      "base_block": "minecraft:magma_block",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5,
+      "texture": "minecraft:block/magma"
+    },
+    {
+      "base_block": "minecraft:glowstone",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.3
+    },
+    {
+      "base_block": "minecraft:shroomlight",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.0
+    },
+    {
+      "base_block": "minecraft:warped_wart_block",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.0
+    },
+    {
+      "base_block": "minecraft:nether_wart_block",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.0
+    },
+    {
+      "base_block": "minecraft:crying_obsidian",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 50.0
+    },
+    {
+      "base_block": "minecraft:gilded_blackstone",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.5
+    },
+    {
+      "base_block": "minecraft:terracotta",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.25
+    },
+    {
+      "base_block": "minecraft:white_terracotta",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.25
+    },
+    {
+      "base_block": "minecraft:orange_terracotta",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.25
+    },
+    {
+      "base_block": "minecraft:magenta_terracotta",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.25
+    },
+    {
+      "base_block": "minecraft:light_blue_terracotta",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.25
+    },
+    {
+      "base_block": "minecraft:yellow_terracotta",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.25
+    },
+    {
+      "base_block": "minecraft:lime_terracotta",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.25
+    },
+    {
+      "base_block": "minecraft:pink_terracotta",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.25
+    },
+    {
+      "base_block": "minecraft:gray_terracotta",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.25
+    },
+    {
+      "base_block": "minecraft:light_gray_terracotta",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.25
+    },
+    {
+      "base_block": "minecraft:cyan_terracotta",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.25
+    },
+    {
+      "base_block": "minecraft:purple_terracotta",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.25
+    },
+    {
+      "base_block": "minecraft:blue_terracotta",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.25
+    },
+    {
+      "base_block": "minecraft:brown_terracotta",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.25
+    },
+    {
+      "base_block": "minecraft:green_terracotta",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.25
+    },
+    {
+      "base_block": "minecraft:red_terracotta",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.25
+    },
+    {
+      "base_block": "minecraft:black_terracotta",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.25
+    },
+    {
+      "base_block": "minecraft:white_concrete",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.8
+    },
+    {
+      "base_block": "minecraft:orange_concrete",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.8
+    },
+    {
+      "base_block": "minecraft:magenta_concrete",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.8
+    },
+    {
+      "base_block": "minecraft:light_blue_concrete",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.8
+    },
+    {
+      "base_block": "minecraft:yellow_concrete",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.8
+    },
+    {
+      "base_block": "minecraft:lime_concrete",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.8
+    },
+    {
+      "base_block": "minecraft:pink_concrete",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.8
+    },
+    {
+      "base_block": "minecraft:gray_concrete",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.8
+    },
+    {
+      "base_block": "minecraft:light_gray_concrete",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.8
+    },
+    {
+      "base_block": "minecraft:cyan_concrete",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.8
+    },
+    {
+      "base_block": "minecraft:purple_concrete",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.8
+    },
+    {
+      "base_block": "minecraft:blue_concrete",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.8
+    },
+    {
+      "base_block": "minecraft:brown_concrete",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.8
+    },
+    {
+      "base_block": "minecraft:green_concrete",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.8
+    },
+    {
+      "base_block": "minecraft:red_concrete",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.8
+    },
+    {
+      "base_block": "minecraft:black_concrete",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.8
+    },
+    {
+      "base_block": "minecraft:white_concrete_powder",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:orange_concrete_powder",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:magenta_concrete_powder",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:light_blue_concrete_powder",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:yellow_concrete_powder",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:lime_concrete_powder",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:pink_concrete_powder",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:gray_concrete_powder",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:light_gray_concrete_powder",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:cyan_concrete_powder",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:purple_concrete_powder",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:blue_concrete_powder",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:brown_concrete_powder",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:green_concrete_powder",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:red_concrete_powder",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:black_concrete_powder",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5
+    },
+    {
+      "base_block": "minecraft:bone_block",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 2.0,
+      "texture": "minecraft:block/bone_block_side"
+    },
+    {
+      "base_block": "minecraft:dried_kelp_block",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5,
+      "texture": "minecraft:block/dried_kelp_side"
+    },
+    {
+      "base_block": "minecraft:hay_block",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5,
+      "texture": "minecraft:block/hay_block_side"
+    },
+    {
+      "base_block": "minecraft:honey_block",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.0,
+      "texture": "minecraft:block/honey_block_side"
+    },
+    {
+      "base_block": "minecraft:honeycomb_block",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.6
+    },
+    {
+      "base_block": "minecraft:melon",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.0,
+      "texture": "minecraft:block/melon_side"
+    },
+    {
+      "base_block": "minecraft:pumpkin",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.0,
+      "texture": "minecraft:block/pumpkin_side"
+    },
+    {
+      "base_block": "minecraft:carved_pumpkin",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.0,
+      "texture": "minecraft:block/pumpkin_side"
+    },
+    {
+      "base_block": "minecraft:jack_o_lantern",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 1.0,
+      "texture": "minecraft:block/pumpkin_side"
+    },
+    {
+      "base_block": "minecraft:slime_block",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.0
+    },
+    {
+      "base_block": "minecraft:sponge",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.6
+    },
+    {
+      "base_block": "minecraft:wet_sponge",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.6
+    },
+    {
+      "base_block": "minecraft:clay",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.6
+    },
+    {
+      "base_block": "minecraft:sea_lantern",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.3
+    },
+    {
+      "base_block": "minecraft:bookshelf",
+      "material": "wood",
+      "activation_rule": "everything",
+      "strength": 1.5,
+      "texture": "minecraft:block/bookshelf"
+    },
+    {
+      "base_block": "minecraft:chiseled_bookshelf",
+      "material": "wood",
+      "activation_rule": "everything",
+      "strength": 1.5,
+      "texture": "minecraft:block/chiseled_bookshelf_empty"
+    },
+    {
+      "base_block": "minecraft:target",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 0.5,
+      "texture": "minecraft:block/target_side"
+    },
+    {
+      "base_block": "minecraft:lodestone",
+      "material": "stone",
+      "activation_rule": "mobs",
+      "strength": 3.5,
+      "texture": "minecraft:block/lodestone_side"
+    },
+    {
+      "base_block": "minecraft:note_block",
+      "material": "wood",
+      "activation_rule": "everything",
+      "strength": 0.8,
+      "texture": "minecraft:block/note_block"
+    },
+    {
+      "base_block": "minecraft:jukebox",
+      "material": "wood",
+      "activation_rule": "everything",
+      "strength": 2.0,
+      "texture": "minecraft:block/jukebox_side"
     }
   ]
 }
