@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:block/pressure_plate_down",
     "textures": {
-        "texture": "minecraft:block/jack_o_lantern"
+        "texture": "minecraft:block/pumpkin_side"
     }
 }
