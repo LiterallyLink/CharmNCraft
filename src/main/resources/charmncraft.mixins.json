@@ -6,7 +6,9 @@
     "AnimalEntityMixin",
     "RabbitEntityMixin",
     "RabbitEntityAccessor",
-    "VillagerEntityMixin"
+    "VillagerEntityMixin",
+    "NetheriteToolMaterialMixin",
+    "NetheriteArmorMaterialMixin"
   ],
   "injectors": {
     "defaultRequire": 1
