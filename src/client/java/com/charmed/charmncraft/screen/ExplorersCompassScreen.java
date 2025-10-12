@@ -20,7 +20,6 @@ public class ExplorersCompassScreen extends Screen {
     private ButtonWidget selectStructureButton;
     private ButtonWidget startSearchButton;
     private ButtonWidget sortByButton;
-    private String selectedStructure = null;
 
     public ExplorersCompassScreen() {
         super(Text.literal("Explorer's Compass"));
@@ -30,8 +29,12 @@ public class ExplorersCompassScreen extends Screen {
     protected void init() {
         super.init();
 
+        int buttonHeight = this.textRenderer.fontHeight + (BUTTON_PADDING_Y * 2);
         int cancelWidth = this.textRenderer.getWidth("Cancel") + (BUTTON_PADDING_X * 2);
-        int cancelHeight = this.textRenderer.fontHeight + (BUTTON_PADDING_Y * 2);
+        int teleportWidth = this.textRenderer.getWidth("Teleport") + (BUTTON_PADDING_X * 2);
+        int selectWidth = this.textRenderer.getWidth("Select Structure") + (BUTTON_PADDING_X * 2);
+        int searchWidth = this.textRenderer.getWidth("Start Search") + (BUTTON_PADDING_X * 2);
+        int sortWidth = this.textRenderer.getWidth("Sort By: Name") + (BUTTON_PADDING_X * 2);
 
         this.addDrawableChild(ButtonWidget.builder(
                 Text.literal("Cancel"),
@@ -39,68 +42,37 @@ public class ExplorersCompassScreen extends Screen {
                     ClientPlayNetworking.send(CharmNCraft.COMPASS_UI_CLOSED, PacketByteBufs.empty());
                     this.close();
                 }
-        ).dimensions(
-                MARGIN,
-                this.height - cancelHeight - MARGIN,
-                cancelWidth,
-                cancelHeight
-        ).build());
-
-        int teleportWidth = this.textRenderer.getWidth("Teleport") + (BUTTON_PADDING_X * 2);
-        int selectWidth = this.textRenderer.getWidth("Select Structure") + (BUTTON_PADDING_X * 2);
-        int searchWidth = this.textRenderer.getWidth("Start Search") + (BUTTON_PADDING_X * 2);
-        int sortWidth = this.textRenderer.getWidth("Sort By: Name") + (BUTTON_PADDING_X * 2);
-        int buttonHeight = this.textRenderer.fontHeight + (BUTTON_PADDING_Y * 2);
+        ).dimensions(MARGIN, this.height - buttonHeight - MARGIN, cancelWidth, buttonHeight).build());
 
         this.teleportButton = this.addDrawableChild(ButtonWidget.builder(
                 Text.literal("Teleport"),
                 button -> this.onTeleport()
-        ).dimensions(
-                this.width - teleportWidth - MARGIN,
-                MARGIN,
-                teleportWidth,
-                buttonHeight
-        ).build());
+        ).dimensions(this.width - teleportWidth - MARGIN, MARGIN, teleportWidth, buttonHeight).build());
+
+        int maxLeftButtonWidth = Math.max(Math.max(selectWidth, searchWidth), sortWidth);
 
         this.selectStructureButton = this.addDrawableChild(ButtonWidget.builder(
                 Text.literal("Select Structure"),
                 button -> this.onSelectStructure()
-        ).dimensions(
-                MARGIN,
-                MARGIN,
-                selectWidth,
-                buttonHeight
-        ).build());
+        ).dimensions(MARGIN, MARGIN, maxLeftButtonWidth, buttonHeight).build());
 
         this.startSearchButton = this.addDrawableChild(ButtonWidget.builder(
                 Text.literal("Start Search"),
                 button -> this.onStartSearch()
-        ).dimensions(
-                MARGIN,
-                MARGIN + buttonHeight + SPACING,
-                searchWidth,
-                buttonHeight
-        ).build());
+        ).dimensions(MARGIN, MARGIN + buttonHeight + SPACING, maxLeftButtonWidth, buttonHeight).build());
 
         this.sortByButton = this.addDrawableChild(ButtonWidget.builder(
                 Text.literal("Sort By: Name"),
                 button -> this.onSortBy()
-        ).dimensions(
-                MARGIN,
-                MARGIN + (buttonHeight + SPACING) * 2,
-                sortWidth,
-                buttonHeight
-        ).build());
+        ).dimensions(MARGIN, MARGIN + (buttonHeight + SPACING) * 2, maxLeftButtonWidth, buttonHeight).build());
 
-        int maxLeftButtonWidth = Math.max(Math.max(selectWidth, searchWidth), sortWidth);
         int searchFieldX = MARGIN + maxLeftButtonWidth + SPACING;
-        int searchFieldY = MARGIN;
-        int searchFieldWidth = 400;
+        int searchFieldWidth = this.width - searchFieldX - MARGIN;
 
         this.searchField = new TextFieldWidget(
                 this.textRenderer,
                 searchFieldX,
-                searchFieldY,
+                MARGIN,
                 searchFieldWidth,
                 buttonHeight,
                 Text.literal("Search")
@@ -108,20 +80,10 @@ public class ExplorersCompassScreen extends Screen {
         this.searchField.setMaxLength(256);
         this.searchField.setPlaceholder(Text.literal("Search structures..."));
         this.addSelectableChild(this.searchField);
-
-        this.updateButtonStates();
-    }
-
-    private void updateButtonStates() {
-        boolean hasSelection = this.selectedStructure != null;
-        this.teleportButton.active = hasSelection;
-        this.startSearchButton.active = hasSelection;
     }
 
     private void onTeleport() {
-        if (this.selectedStructure != null) {
-            CharmNCraft.LOGGER.info("Teleporting to: {}", this.selectedStructure);
-        }
+        CharmNCraft.LOGGER.info("Teleport clicked");
     }
 
     private void onSelectStructure() {
@@ -129,9 +91,7 @@ public class ExplorersCompassScreen extends Screen {
     }
 
     private void onStartSearch() {
-        if (this.selectedStructure != null) {
-            CharmNCraft.LOGGER.info("Starting search for: {}", this.selectedStructure);
-        }
+        CharmNCraft.LOGGER.info("Start search clicked");
     }
 
     private void onSortBy() {
@@ -140,9 +100,14 @@ public class ExplorersCompassScreen extends Screen {
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        // Draw a clean dark gradient background instead of the dirt texture
         context.fillGradient(0, 0, this.width, this.height, 0xC0101010, 0xD0101010);
-        super.render(context, mouseX, mouseY, delta);
+
+        // Draw search box and buttons
         this.searchField.render(context, mouseX, mouseY, delta);
+
+        // Draw text and tooltips last (super.render handles that part)
+        super.render(context, mouseX, mouseY, delta);
     }
 
     @Override
