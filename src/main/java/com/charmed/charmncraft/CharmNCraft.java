@@ -19,7 +19,6 @@ public class CharmNCraft implements ModInitializer {
         LOGGER.info("[CharmNCraft] Initialize");
 
         ModBlocks.initialize();
-        ModItems.initialize();
         PressurePlateGenerator.initialize();
         VillagerNameManager.initialize();
 
@@ -38,10 +37,6 @@ public class CharmNCraft implements ModInitializer {
             PressurePlateGenerator.getGeneratedPlates().forEach(plate -> {
                 entries.add(plate.block());
             });
-        });
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
-            entries.add(ModItems.EXPLORERS_COMPASS);
         });
     }
 }
