@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 public class CharmNCraft implements ModInitializer {
     public static final String MOD_ID = "charmncraft";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-    public static final Identifier COMPASS_UI_CLOSED = new Identifier(MOD_ID, "compass_ui_closed");
 
     @Override
     public void onInitialize() {
@@ -21,12 +20,6 @@ public class CharmNCraft implements ModInitializer {
         ModBlocks.initialize();
         PressurePlateGenerator.initialize();
         VillagerNameManager.initialize();
-
-        ServerPlayNetworking.registerGlobalReceiver(COMPASS_UI_CLOSED, (server, player, handler, buf, responseSender) -> {
-            server.execute(() -> {
-                player.sendMessage(Text.literal("Explorer's Compass UI disabled"), false);
-            });
-        });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
             entries.add(ModBlocks.FROSTED_STONE_BRICKS);
