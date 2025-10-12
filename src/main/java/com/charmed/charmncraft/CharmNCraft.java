@@ -32,5 +32,10 @@ public class CharmNCraft implements ModInitializer {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
             entries.add(ModItems.NETHERITE_NUGGET);
         });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
+            entries.add(ModItems.NETHERITE_APPLE);
+            entries.add(ModItems.ENCHANTED_NETHERITE_APPLE);
+        });
     }
 }
