@@ -31,6 +31,7 @@ public class CharmNCraft implements ModInitializer {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
             entries.add(ModItems.TOTEM_OF_NEVERDYING);
+            entries.add(ModItems.NETHERITE_HORSE_ARMOR);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {

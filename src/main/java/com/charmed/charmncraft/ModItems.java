@@ -1,5 +1,6 @@
 package com.charmed.charmncraft;
 
+import com.charmed.charmncraft.item.NetheriteHorseArmorItem;
 import com.charmed.charmncraft.item.TotemOfNeverdyingItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -52,6 +53,12 @@ public class ModItems {
             new TotemOfNeverdyingItem(new FabricItemSettings()
                     .fireproof()
                     .maxCount(1)
+                    .rarity(Rarity.UNCOMMON)));
+
+    public static final Item NETHERITE_HORSE_ARMOR = registerItem("netherite_horse_armor",
+            new NetheriteHorseArmorItem(new FabricItemSettings()
+                    .maxCount(1)
+                    .fireproof()
                     .rarity(Rarity.UNCOMMON)));
 
     private static Item registerItem(String name, Item item) {

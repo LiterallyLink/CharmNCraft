@@ -5,6 +5,8 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AnimalEntityMixin",
+    "HorseEntityMixin",
+    "LivingEntityMixin",
     "NetheriteArmorMaterialMixin",
     "NetheriteToolMaterialMixin",
     "PiglinBruteLootMixin",
@@ -12,9 +14,7 @@
     "RabbitEntityMixin",
     "VillagerEntityMixin"
   ],
-  "client": [
-    "LivingEntityMixin"
-  ],
+  "client": [],
   "injectors": {
     "defaultRequire": 1
   }
