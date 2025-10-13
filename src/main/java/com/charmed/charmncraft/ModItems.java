@@ -47,6 +47,12 @@ public class ModItems {
                 }
             });
 
+    public static final Item TOTEM_OF_NEVERDYING = registerItem("totem_of_neverdying",
+            new Item(new FabricItemSettings()
+                    .fireproof()
+                    .maxCount(1)
+                    .rarity(Rarity.UNCOMMON)));
+
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(CharmNCraft.MOD_ID, name), item);
     }

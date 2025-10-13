@@ -29,6 +29,10 @@ public class CharmNCraft implements ModInitializer {
             });
         });
 
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
+            entries.add(ModItems.TOTEM_OF_NEVERDYING);
+        });
+
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
             entries.add(ModItems.NETHERITE_NUGGET);
         });
