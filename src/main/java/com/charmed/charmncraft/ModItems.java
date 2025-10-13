@@ -40,7 +40,12 @@ public class ModItems {
                             .statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 12000, 3), 1.0f)
                             .build())
                     .fireproof()
-                    .rarity(Rarity.EPIC)));
+                    .rarity(Rarity.EPIC)) {
+                @Override
+                public boolean hasGlint(net.minecraft.item.ItemStack stack) {
+                    return true;
+                }
+            });
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(CharmNCraft.MOD_ID, name), item);
