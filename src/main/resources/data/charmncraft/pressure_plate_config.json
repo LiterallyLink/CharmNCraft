@@ -838,13 +838,6 @@
       "texture": "minecraft:block/bone_block_side"
     },
     {
-      "base_block": "minecraft:dried_kelp_block",
-      "material": "stone",
-      "activation_rule": "mobs",
-      "strength": 0.5,
-      "texture": "minecraft:block/dried_kelp_side"
-    },
-    {
       "base_block": "minecraft:hay_block",
       "material": "stone",
       "activation_rule": "mobs",
@@ -923,13 +916,6 @@
       "strength": 0.3
     },
     {
-      "base_block": "minecraft:bookshelf",
-      "material": "wood",
-      "activation_rule": "everything",
-      "strength": 1.5,
-      "texture": "minecraft:block/bookshelf"
-    },
-    {
       "base_block": "minecraft:chiseled_bookshelf",
       "material": "wood",
       "activation_rule": "everything",
@@ -956,13 +942,6 @@
       "activation_rule": "everything",
       "strength": 0.8,
       "texture": "minecraft:block/note_block"
-    },
-    {
-      "base_block": "minecraft:jukebox",
-      "material": "wood",
-      "activation_rule": "everything",
-      "strength": 2.0,
-      "texture": "minecraft:block/jukebox_side"
     }
   ]
 }

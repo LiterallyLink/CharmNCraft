@@ -162,7 +162,6 @@
     "block.charmncraft.red_concrete_powder_pressure_plate": "Red Concrete Powder Pressure Plate",
     "block.charmncraft.black_concrete_powder_pressure_plate": "Black Concrete Powder Pressure Plate",
     "block.charmncraft.bone_block_pressure_plate": "Bone Block Pressure Plate",
-    "block.charmncraft.dried_kelp_block_pressure_plate": "Dried Kelp Block Pressure Plate",
     "block.charmncraft.hay_block_pressure_plate": "Hay Block Pressure Plate",
     "block.charmncraft.honey_block_pressure_plate": "Honey Block Pressure Plate",
     "block.charmncraft.honeycomb_block_pressure_plate": "Honeycomb Block Pressure Plate",
@@ -175,10 +174,8 @@
     "block.charmncraft.wet_sponge_pressure_plate": "Wet Sponge Pressure Plate",
     "block.charmncraft.clay_pressure_plate": "Clay Pressure Plate",
     "block.charmncraft.sea_lantern_pressure_plate": "Sea Lantern Pressure Plate",
-    "block.charmncraft.bookshelf_pressure_plate": "Bookshelf Pressure Plate",
     "block.charmncraft.chiseled_bookshelf_pressure_plate": "Chiseled Bookshelf Pressure Plate",
     "block.charmncraft.target_pressure_plate": "Target Pressure Plate",
     "block.charmncraft.lodestone_pressure_plate": "Lodestone Pressure Plate",
-    "block.charmncraft.note_block_pressure_plate": "Note Block Pressure Plate",
-    "block.charmncraft.jukebox_pressure_plate": "Jukebox Pressure Plate"
+    "block.charmncraft.note_block_pressure_plate": "Note Block Pressure Plate"
 }

@@ -14,8 +14,11 @@ public class CharmNCraft implements ModInitializer {
     public void onInitialize() {
         LOGGER.info("[CharmNCraft] Initialize");
 
+        // Make it so that if you put a sponge in a furnace it makes a dry sponge pressure plate
+
         ModBlocks.initialize();
         ModItems.initialize();
+        PressurePlateGenerator.initialize();
         VillagerNameManager.initialize();
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
