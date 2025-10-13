@@ -10,7 +10,6 @@
     "NetheriteArmorMaterialMixin",
     "NetheriteToolMaterialMixin",
     "PiglinBruteLootMixin",
-    "PlayerDeathMessageMixin",
     "RabbitEntityAccessor",
     "RabbitEntityMixin",
     "VillagerEntityMixin"
