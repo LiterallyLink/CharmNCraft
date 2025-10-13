@@ -1,5 +1,6 @@
 package com.charmed.charmncraft;
 
+import com.charmed.charmncraft.item.TotemOfNeverdyingItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -48,7 +49,7 @@ public class ModItems {
             });
 
     public static final Item TOTEM_OF_NEVERDYING = registerItem("totem_of_neverdying",
-            new Item(new FabricItemSettings()
+            new TotemOfNeverdyingItem(new FabricItemSettings()
                     .fireproof()
                     .maxCount(1)
                     .rarity(Rarity.UNCOMMON)));
