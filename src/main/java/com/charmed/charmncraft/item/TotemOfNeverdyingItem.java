@@ -33,7 +33,7 @@ public class TotemOfNeverdyingItem extends Item {
         stack.getOrCreateNbt().putInt(LIVES_KEY, Math.max(0, Math.min(lives, MAX_LIVES)));
     }
 
-    public static boolean useLife(ItemStack stack, LivingEntity entity) {
+    public static boolean useLife(ItemStack stack, LivingEntity entity, TotemOfNeverdyingItem item) {
         int lives = getLives(stack);
         if (lives <= 0) {
             return false;
@@ -51,7 +51,7 @@ public class TotemOfNeverdyingItem extends Item {
         entity.getWorld().sendEntityStatus(entity, (byte)35);
 
         if (entity instanceof ServerPlayerEntity player) {
-            player.incrementStat(Stats.USED.getOrCreateStat(this));
+            player.incrementStat(Stats.USED.getOrCreateStat(item));
         }
 
         // Remove totem if no lives left

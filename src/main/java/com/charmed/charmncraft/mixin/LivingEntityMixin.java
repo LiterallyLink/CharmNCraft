@@ -35,12 +35,12 @@ public abstract class LivingEntityMixin {
         ItemStack totemStack = null;
         if (mainHandStack.isOf(ModItems.TOTEM_OF_NEVERDYING)) {
             totemStack = mainHandStack;
+            if (TotemOfNeverdyingItem.useLife(totemStack, entity, (TotemOfNeverdyingItem) ModItems.TOTEM_OF_NEVERDYING)) {
+                cir.setReturnValue(true);
+            }
         } else if (offHandStack.isOf(ModItems.TOTEM_OF_NEVERDYING)) {
             totemStack = offHandStack;
-        }
-
-        if (totemStack != null) {
-            if (TotemOfNeverdyingItem.useLife(totemStack, entity)) {
+            if (TotemOfNeverdyingItem.useLife(totemStack, entity, (TotemOfNeverdyingItem) ModItems.TOTEM_OF_NEVERDYING)) {
                 cir.setReturnValue(true);
             }
         }
