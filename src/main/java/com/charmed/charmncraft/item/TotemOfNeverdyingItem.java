@@ -64,6 +64,6 @@ public class TotemOfNeverdyingItem extends Item {
 
     @Override
     public boolean hasGlint(ItemStack stack) {
-        return getLives(stack) == MAX_LIVES;
+        return true;
     }
 }
