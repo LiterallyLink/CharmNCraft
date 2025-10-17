@@ -1,0 +1,18 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "charmncraft:shulker_mollusk"
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knives"
+  },
+  "result": [
+    {
+      "item": "charmncraft:shulker_filet",
+      "count": 2
+    }
+  ]
+}
+

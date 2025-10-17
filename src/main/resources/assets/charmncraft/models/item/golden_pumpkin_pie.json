@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "charmncraft:item/golden_pumpkin_pie"
+  }
+}
+

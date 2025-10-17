@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "charmncraft:block/frosted_stone_bricks_side"
-  }
-}

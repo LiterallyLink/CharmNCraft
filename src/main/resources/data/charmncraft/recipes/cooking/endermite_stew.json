@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cooking",
+  "recipe_book_tab": "meals",
+  "ingredients": [
+    {
+      "tag": "charmncraft:enderman_loot"
+    },
+    {
+      "item": "charmncraft:mite_crust"
+    }
+  ],
+  "result": {
+    "item": "charmncraft:endermite_stew"
+  },
+  "container": {
+    "item": "charmncraft:shulker_bowl"
+  },
+  "experience": 1.0,
+  "cookingtime": 200
+}
+

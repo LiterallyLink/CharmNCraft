@@ -1,0 +1,27 @@
+{
+  "type": "farmersdelight:cooking",
+  "recipe_book_tab": "meals",
+  "ingredients": [
+    {
+      "tag": "charmncraft:enderman_sight"
+    },
+    {
+      "tag": "charmncraft:shulker_loot"
+    },
+    {
+      "item": "minecraft:chorus_flower"
+    },
+    {
+      "item": "farmersdelight:rice"
+    }
+  ],
+  "result": {
+    "item": "charmncraft:ender_paella"
+  },
+  "container": {
+    "item": "charmncraft:shulker_bowl"
+  },
+  "experience": 1.0,
+  "cookingtime": 200
+}
+

@@ -1,0 +1,18 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "charmncraft:enderman_sight"
+    }
+  ],
+  "tool": {
+    "tag": "c:cobblestone"
+  },
+  "result": [
+    {
+      "item": "charmncraft:sight_fragment",
+      "count": 2
+    }
+  ]
+}
+

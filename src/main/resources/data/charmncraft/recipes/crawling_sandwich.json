@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "charmncraft:shulker_loot"
+    },
+    {
+      "item": "charmncraft:mite_crust"
+    },
+    {
+      "item": "minecraft:chorus_fruit"
+    },
+    {
+      "item": "minecraft:bread"
+    }
+  ],
+  "result": {
+    "item": "charmncraft:crawling_sandwich",
+    "count": 1
+  }
+}
+

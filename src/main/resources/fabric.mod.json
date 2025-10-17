@@ -17,17 +17,10 @@
 	"entrypoints": {
 		"main": [
 			"com.charmed.charmncraft.CharmNCraft"
-		],
-		"client": [
-			"com.charmed.charmncraft.CharmNCraftClient"
 		]
 	},
 	"mixins": [
-		"charmncraft.mixins.json",
-		{
-			"config": "charmncraft.client.mixins.json",
-			"environment": "client"
-		}
+		"charmncraft.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.17.2",
@@ -39,3 +32,4 @@
 		"another-mod": "*"
 	}
 }
+

@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "charmncraft:item/cabbage_bobo_chicken"
+  }
+}
+

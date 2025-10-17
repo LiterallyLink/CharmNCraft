@@ -1,0 +1,18 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "charmncraft:chorus_pie"
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knives"
+  },
+  "result": [
+    {
+      "item": "charmncraft:chorus_pie_slice",
+      "count": 4
+    }
+  ]
+}
+

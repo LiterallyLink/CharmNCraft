@@ -4,18 +4,10 @@
   "package": "com.charmed.charmncraft.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "AnimalEntityMixin",
-    "HorseEntityMixin",
-    "LivingEntityMixin",
-    "NetheriteArmorMaterialMixin",
-    "NetheriteToolMaterialMixin",
-    "PiglinBruteLootMixin",
-    "RabbitEntityAccessor",
-    "RabbitEntityMixin",
-    "VillagerEntityMixin"
   ],
   "client": [],
   "injectors": {
     "defaultRequire": 1
   }
 }
+

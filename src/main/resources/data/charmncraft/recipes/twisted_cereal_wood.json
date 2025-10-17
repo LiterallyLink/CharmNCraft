@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "charmncraft:enderman_sight"
+    },
+    {
+      "tag": "charmncraft:enderman_loot"
+    },
+    {
+      "item": "minecraft:popped_chorus_fruit"
+    },
+    {
+      "item": "farmersdelight:milk_bottle"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "charmncraft:twisted_cereal_wood",
+    "count": 1
+  }
+}
+

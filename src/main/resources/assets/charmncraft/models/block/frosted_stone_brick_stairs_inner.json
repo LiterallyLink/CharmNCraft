@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "charmncraft:block/frosted_stone_bricks_top",
-    "top": "charmncraft:block/frosted_stone_bricks_top",
-    "side": "charmncraft:block/frosted_stone_bricks_side"
-  }
-}

@@ -1,0 +1,30 @@
+{
+  "type": "farmersdelight:cooking",
+  "recipe_book_tab": "meals",
+  "ingredients": [
+    {
+      "item": "charmncraft:shulker_mollusk"
+    },
+    {
+      "item": "minecraft:chorus_fruit"
+    },
+    {
+      "item": "farmersdelight:rice"
+    },
+    {
+      "item": "farmersdelight:tomato"
+    },
+    {
+      "item": "minecraft:brown_mushroom"
+    }
+  ],
+  "result": {
+    "item": "charmncraft:stuffed_shulker_block"
+  },
+  "container": {
+    "item": "minecraft:shulker_shell"
+  },
+  "experience": 1.0,
+  "cookingtime": 200
+}
+

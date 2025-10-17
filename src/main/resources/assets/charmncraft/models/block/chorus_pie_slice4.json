@@ -1,0 +1,35 @@
+{
+  "credit": "Made with Blockbench",
+  "textures": {
+    "particle": "charmncraft:block/chorus_pie_top",
+    "bottom": "charmncraft:block/pie_bottom",
+    "inner": "charmncraft:block/chorus_pie_inner",
+    "side": "charmncraft:block/pie_side",
+    "top": "charmncraft:block/chorus_pie_top"
+  },
+  "elements": [
+    {
+      "from": [8, 0, 4],
+      "to": [12, 4, 8],
+      "faces": {
+        "north": {"uv": [4, 12, 8, 16], "texture": "#side"},
+        "east": {"uv": [8, 12, 12, 16], "texture": "#side"},
+        "south": {"uv": [8, 12, 12, 16], "texture": "#inner"},
+        "west": {"uv": [4, 12, 8, 16], "texture": "#inner"},
+        "up": {"uv": [8, 4, 12, 8], "texture": "#top"},
+        "down": {"uv": [4, 8, 12, 12], "texture": "#bottom", "cullface": "down"}
+      }
+    },
+    {
+      "from": [9, 4, 7],
+      "to": [11, 5, 8],
+      "faces": {
+        "north": {"uv": [7, 11, 9, 12], "texture": "#inner"},
+        "east": {"uv": [8, 11, 9, 12], "texture": "#inner"},
+        "south": {"uv": [9, 11, 11, 12], "texture": "#inner"},
+        "west": {"uv": [7, 11, 8, 12], "texture": "#inner"},
+        "up": {"uv": [9, 7, 11, 8], "texture": "#inner"}
+      }
+    }
+  ]
+}

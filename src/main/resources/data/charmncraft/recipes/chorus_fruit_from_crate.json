@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "charmncraft:chorus_crate"
+    }
+  ],
+  "result": {
+    "item": "minecraft:chorus_fruit",
+    "count": 9
+  }
+}
+

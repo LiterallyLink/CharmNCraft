@@ -1,0 +1,30 @@
+{
+  "replace": false,
+  "entries": [
+    "charmncraft:scavenging_enderman_sight_from_enderman",
+    "charmncraft:scavenging_mite_crust_from_endermite",
+    "charmncraft:scavenging_shulker_mollusk_from_shulker",
+    "charmncraft:compat/endermanoverhaul/scavenging/badlands_enderman",
+    "charmncraft:compat/endermanoverhaul/scavenging/cave_enderman",
+    "charmncraft:compat/endermanoverhaul/scavenging/coral_enderman",
+    "charmncraft:compat/endermanoverhaul/scavenging/crimson_forest_enderman",
+    "charmncraft:compat/endermanoverhaul/scavenging/dark_oak_enderman",
+    "charmncraft:compat/endermanoverhaul/scavenging/desert_enderman",
+    "charmncraft:compat/endermanoverhaul/scavenging/end_enderman",
+    "charmncraft:compat/endermanoverhaul/scavenging/end_islands_enderman",
+    "charmncraft:compat/endermanoverhaul/scavenging/flower_fields_enderman",
+    "charmncraft:compat/endermanoverhaul/scavenging/hammerhead_pet_enderman",
+    "charmncraft:compat/endermanoverhaul/scavenging/ice_spikes_enderman",
+    "charmncraft:compat/endermanoverhaul/scavenging/mushroom_fields_enderman",
+    "charmncraft:compat/endermanoverhaul/scavenging/nether_wastes_enderman",
+    "charmncraft:compat/endermanoverhaul/scavenging/pet_enderman",
+    "charmncraft:compat/endermanoverhaul/scavenging/savanna_enderman",
+    "charmncraft:compat/endermanoverhaul/scavenging/snowy_enderman",
+    "charmncraft:compat/endermanoverhaul/scavenging/soulsand_valley_enderman",
+    "charmncraft:compat/endermanoverhaul/scavenging/swamp_enderman",
+    "charmncraft:compat/endermanoverhaul/scavenging/windswept_hills_enderman",
+    "charmncraft:compat/endermanoverhaul/scavenging/warped_forest_enderman",
+    "charmncraft:compat/endermanoverhaul/scavenging/nether_wastes_enderman"
+  ]
+}
+

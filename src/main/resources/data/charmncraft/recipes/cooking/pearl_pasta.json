@@ -1,0 +1,24 @@
+{
+  "type": "farmersdelight:cooking",
+  "recipe_book_tab": "meals",
+  "ingredients": [
+    {
+      "tag": "charmncraft:enderman_loot"
+    },
+    {
+      "tag": "c:foods/pastas"
+    },
+    {
+      "item": "charmncraft:chorus_juice"
+    }
+  ],
+  "result": {
+    "item": "charmncraft:pearl_pasta"
+  },
+  "container": {
+    "item": "charmncraft:shulker_bowl"
+  },
+  "experience": 1.0,
+  "cookingtime": 200
+}
+
